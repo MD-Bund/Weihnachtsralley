@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Weihnachtsrallye | Medizinischer Dienst Bund</title>
+  <title>Winterrallye | Medizinischer Dienst Bund</title>
 
   <style>
-
     :root {
       --dunkelblau: #004b6e;
       --blau: #06688f;
       --tuerkis: #0099c6;
       --helltuerkis: #5ec4e1;
       --hellblau: #d5ecf4;
+      --gruen: #3e8825;
       --weiss: #ffffff;
       --schwarz: #111111;
     }
@@ -33,11 +33,6 @@
       background: var(--hellblau);
     }
 
-
-    /* =========================================
-       ALLGEMEIN
-       ========================================= */
-
     .seite {
       display: none;
       min-height: 100vh;
@@ -53,9 +48,7 @@
       padding: 40px 0 70px;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       color: var(--dunkelblau);
     }
 
@@ -79,16 +72,12 @@
       line-height: 1.6;
     }
 
-
-    /* =========================================
-       BUTTON
-       ========================================= */
+    /* BUTTONS */
 
     .button {
       display: inline-block;
       width: 100%;
       max-width: 420px;
-
       padding: 17px 24px;
       margin-top: 18px;
 
@@ -103,27 +92,16 @@
       font-weight: bold;
 
       cursor: pointer;
-
       text-align: center;
-      text-decoration: none;
     }
 
     .button:hover {
       background: var(--blau);
     }
 
-    .button:focus {
-      outline: 4px solid var(--helltuerkis);
-      outline-offset: 3px;
-    }
-
-
-    /* =========================================
-       STARTSEITE
-       ========================================= */
+    /* STARTSEITE */
 
     #start {
-
       min-height: 100vh;
 
       background-image:
@@ -136,75 +114,43 @@
       color: var(--weiss);
     }
 
-
     #start .container {
-
       min-height: 100vh;
-
       display: flex;
       flex-direction: column;
-
       justify-content: center;
     }
 
-
-    /*
-      KEIN LOGO IM HTML.
-
-      Das Logo ist bereits Bestandteil
-      des Hintergrundbildes.
-    */
-
-
     .start-inhalt {
-
       max-width: 620px;
-
       padding: 35px;
-
       background: rgba(0, 75, 110, 0.55);
-
       border-radius: 18px;
-
       backdrop-filter: blur(2px);
     }
 
-
     #start h1,
-    #start h2,
     #start p {
       color: var(--weiss);
     }
 
-
     .start-kicker {
-
       margin-top: 0;
-
       text-transform: uppercase;
-
       letter-spacing: 0.12em;
-
       font-weight: bold;
-
       color: var(--helltuerkis) !important;
     }
 
-
     .start-subtitle {
-
       font-size: clamp(1.2rem, 4vw, 1.5rem);
-
       max-width: 560px;
     }
 
+    /* MISSIONSSEITEN */
 
-    /* =========================================
-       MISSION 1
-       ========================================= */
-
-    #mission1 {
-
+    #mission1,
+    #mission2 {
       background:
         linear-gradient(
           rgba(213, 236, 244, 0.90),
@@ -213,76 +159,53 @@
         url("bilder/Vikohintergrund_MD_bund_hellblau.png");
 
       background-size: cover;
-
       background-position: center;
-
       background-attachment: fixed;
     }
-
 
     .missionskopf {
       margin-bottom: 30px;
     }
 
-
     .mission-label {
-
       display: inline-block;
-
       background: var(--dunkelblau);
-
       color: var(--weiss);
-
       padding: 8px 14px;
-
       border-radius: 30px;
-
       font-weight: bold;
-
       margin-bottom: 15px;
     }
 
-
-    /* =========================================
-       FORTSCHRITT
-       ========================================= */
+    /* FORTSCHRITT */
 
     .fortschritt {
-
       height: 8px;
-
       background: rgba(0, 75, 110, 0.15);
-
       border-radius: 20px;
-
       overflow: hidden;
-
       margin-bottom: 35px;
     }
 
-
     .fortschritt > div {
-
-      width: 16.666%;
-
       height: 100%;
-
       background: var(--tuerkis);
     }
 
+    .fortschritt-1 {
+      width: 16.666%;
+    }
 
-    /* =========================================
-       KARTEN
-       ========================================= */
+    .fortschritt-2 {
+      width: 33.333%;
+    }
+
+    /* KARTEN */
 
     .karte {
-
       background: rgba(255, 255, 255, 0.96);
-
       border-radius: 16px;
-
       padding: 28px;
-
       margin: 22px 0;
 
       border: 1px solid rgba(0, 75, 110, 0.12);
@@ -291,775 +214,872 @@
         0 8px 25px rgba(0, 75, 110, 0.08);
     }
 
-
     .karte.akzent {
-
       border-left: 7px solid var(--tuerkis);
     }
 
-
-    /* =========================================
-       DAMALS & HEUTE
-       ========================================= */
-
-    .damals-heute {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 20px;
-
-      margin-top: 25px;
-    }
-
-
-    .vergleich {
-      min-width: 0;
-    }
-
-
-    .bildtitel {
-
-      font-size: 0.95rem;
-
-      color: var(--blau);
-
-      margin-bottom: 8px;
-
-      font-weight: bold;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.06em;
-    }
-
-
-    .koenigshof-bild {
-
-      display: block;
-
-      width: 100%;
-
-      height: 270px;
-
-      object-fit: cover;
-
-      border-radius: 12px;
-
-      border:
-        1px solid rgba(0, 75, 110, 0.15);
-    }
-
-
-    /* =========================================
-       INFO-KASTEN
-       ========================================= */
-
     .info {
-
       margin-top: 20px;
-
       padding: 18px 20px;
-
       background: var(--hellblau);
-
       border-radius: 10px;
-
       color: var(--dunkelblau);
     }
 
+    /* DAMALS & HEUTE */
 
-    /* =========================================
-       FOTO CHALLENGE
-       ========================================= */
-
-    .karte.foto {
-
-      background: var(--dunkelblau);
-
-      color: var(--weiss);
+    .damals-heute {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 25px;
     }
 
+    .bildtitel {
+      font-size: 0.95rem;
+      color: var(--blau);
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .koenigshof-bild {
+      display: block;
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* WEIHNACHTSPYRAMIDE */
+
+    .pyramidenbild {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 14px;
+      margin-top: 20px;
+    }
+
+    /* FOTO CHALLENGE */
+
+    .karte.foto {
+      background: var(--dunkelblau);
+      color: var(--weiss);
+    }
 
     .karte.foto h3 {
       color: var(--weiss);
     }
 
-
     .karte.foto .button {
-
       background: var(--weiss);
-
       color: var(--dunkelblau);
     }
 
-
     .foto-symbol {
-
       font-size: 2.2rem;
-
       margin-bottom: 10px;
     }
 
+    /* MULTIPLE CHOICE */
 
-    /* =========================================
-       ABSCHLUSS
-       ========================================= */
+    .antworten {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .antwort {
+      width: 100%;
+      padding: 16px 18px;
+
+      border: 2px solid var(--helltuerkis);
+      border-radius: 10px;
+
+      background: var(--weiss);
+      color: var(--dunkelblau);
+
+      font-family: Calibri, Arial, sans-serif;
+      font-size: 1.08rem;
+      font-weight: bold;
+
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .antwort:hover {
+      background: var(--hellblau);
+    }
+
+    .antwort.richtig {
+      background: #eef7e9;
+      border-color: var(--gruen);
+      color: #275817;
+    }
+
+    .antwort.falsch {
+      background: #fff3e8;
+      border-color: #d94c12;
+      color: #8a2f0b;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 10px;
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .feedback.sichtbar {
+      display: block;
+    }
+
+    .feedback-richtig {
+      background: #eef7e9;
+      color: #275817;
+    }
+
+    .feedback-falsch {
+      background: #fff3e8;
+      color: #8a2f0b;
+    }
+
+    /* Foto-Challenge Mission 2 zunächst verstecken */
+
+    #fotoMission2 {
+      display: none;
+    }
+
+    #fotoMission2.sichtbar {
+      display: block;
+    }
+
+    /* ABSCHLUSS */
 
     #abschluss {
-
       min-height: 100vh;
 
       background-image:
         url("bilder/Weihnachtsrallye Hintergrund.png");
 
       background-size: cover;
-
       background-position: center;
-
       background-repeat: no-repeat;
 
       color: var(--weiss);
     }
 
-
     #abschluss .container {
-
       min-height: 100vh;
-
       display: flex;
-
       align-items: center;
     }
 
-
     .abschluss-box {
-
       max-width: 620px;
-
       padding: 35px;
-
-      background: rgba(0, 75, 110, 0.70);
-
+      background: rgba(0, 75, 110, 0.72);
       border-radius: 18px;
-
       backdrop-filter: blur(2px);
     }
 
-
-    #abschluss h1,
     #abschluss h2,
     #abschluss p {
-
       color: var(--weiss);
     }
 
-
     .check {
-
       font-size: 4rem;
-
       margin-bottom: 10px;
     }
 
-
-    /* =========================================
-       SMARTPHONE
-       ========================================= */
+    /* SMARTPHONE */
 
     @media (max-width: 600px) {
 
       .container {
-
         width: min(100% - 24px, 900px);
-
         padding-top: 25px;
       }
 
-
-      #start {
-
-        /*
-          Auf dem Smartphone wird etwas stärker
-          auf die linke Bildhälfte fokussiert.
-        */
-
-        background-position: 40% center;
-      }
-
-
       .start-inhalt {
-
         padding: 25px;
-
         margin-top: 110px;
       }
 
-
       .damals-heute {
-
         grid-template-columns: 1fr;
       }
 
-
       .koenigshof-bild {
-
         height: auto;
-
         max-height: 400px;
       }
 
-
-      .karte {
-
-        padding: 20px;
-
-        border-radius: 12px;
+      .pyramidenbild {
+        height: auto;
+        max-height: none;
       }
 
+      .karte {
+        padding: 20px;
+      }
 
       p {
-
         font-size: 1.05rem;
       }
 
-
-      #mission1 {
-
+      #mission1,
+      #mission2 {
         background-attachment: scroll;
       }
-
-
-      .abschluss-box {
-
-        padding: 25px;
-      }
-
     }
 
   </style>
-
 </head>
-
 
 <body>
 
 
-  <!-- =========================================
-       START
-       ========================================= -->
+<!-- =========================================
+     START
+     ========================================= -->
 
-  <section
-    id="start"
-    class="seite aktiv"
-  >
+<section id="start" class="seite aktiv">
 
+  <div class="container">
 
-    <div class="container">
+    <div class="start-inhalt">
 
+      <p class="start-kicker">
+        Willkommen in Essen
+      </p>
 
-      <div class="start-inhalt">
+      <h1>
+        Winterrallye 2026
+      </h1>
 
+      <p class="start-subtitle">
+        Entdecken Sie die neue Nachbarschaft des
+        Medizinischen Dienstes Bund und erleben Sie
+        die Essener Innenstadt zur Weihnachtszeit.
+      </p>
 
-        <p class="start-kicker">
+      <button
+        class="button"
+        onclick="zeigeSeite('mission1')"
+      >
+        Mission starten
+      </button>
 
-          Willkommen in Essen
+    </div>
 
-        </p>
+  </div>
 
-
-        <h1>
-
-          Weihnachts&shy;rallye 2026
-
-        </h1>
-
-
-        <p class="start-subtitle">
-
-          Entdecken Sie die neue Nachbarschaft des
-          Medizinischen Dienstes Bund und erleben Sie
-          die Essener Innenstadt zur Weihnachtszeit.
-
-        </p>
-
-
-        <button
-          class="button"
-          type="button"
-          onclick="zeigeSeite('mission1')"
-        >
-
-          Mission starten
-
-        </button>
+</section>
 
 
+<!-- =========================================
+     MISSION 1
+     ========================================= -->
+
+<section id="mission1" class="seite">
+
+  <div class="container">
+
+    <div class="missionskopf">
+
+      <span class="mission-label">
+        Mission 1 von 6
+      </span>
+
+      <div class="fortschritt">
+        <div class="fortschritt-1"></div>
       </div>
 
+      <h2>
+        Neue Nachbarschaft:<br>
+        Der Königshof
+      </h2>
+
+      <p>
+        Bevor es weiter in die Essener Innenstadt geht,
+        beginnen wir direkt vor unserer neuen Haustür.
+      </p>
 
     </div>
 
 
-  </section>
+    <div class="karte">
 
+      <h3>
+        Damals &amp; heute
+      </h3>
 
+      <p>
+        Der Standort am Willy-Brandt-Platz blickt auf eine
+        lange Geschichte als Handelsstandort zurück.
+        Über Jahrzehnte prägten große Warenhäuser diesen
+        zentralen Eingang zur Essener Innenstadt.
+      </p>
 
-  <!-- =========================================
-       MISSION 1
-       ========================================= -->
+      <p>
+        Heute verbindet der neu gestaltete Königshof
+        Handel, Gastronomie und moderne Arbeitswelten
+        direkt zwischen Hauptbahnhof und Innenstadt.
+      </p>
 
-  <section
-    id="mission1"
-    class="seite"
-  >
+      <div class="damals-heute">
 
-
-    <div class="container">
-
-
-      <div class="missionskopf">
-
-
-        <span class="mission-label">
-
-          Mission 1 von 6
-
-        </span>
-
-
-        <div class="fortschritt">
-
-          <div></div>
-
-        </div>
-
-
-        <h2>
-
-          Neue Nachbarschaft:<br>
-          Der Königshof
-
-        </h2>
-
-
-        <p>
-
-          Bevor es weiter in die Essener Innenstadt geht,
-          beginnen wir direkt vor unserer neuen Haustür.
-
-        </p>
-
-
-      </div>
-
-
-
-      <!-- =====================================
-           DAMALS & HEUTE
-           ===================================== -->
-
-
-      <div class="karte">
-
-
-        <h3>
-
-          Damals &amp; heute
-
-        </h3>
-
-
-        <p>
-
-          Der Standort am Willy-Brandt-Platz blickt auf
-          eine lange Geschichte als Handelsstandort zurück.
-
-          Über Jahrzehnte prägten große Warenhäuser diesen
-          zentralen Eingang zur Essener Innenstadt.
-
-        </p>
-
-
-        <p>
-
-          Heute verbindet der neu gestaltete Königshof
-          Handel, Gastronomie und moderne Arbeitswelten
-          direkt zwischen Hauptbahnhof und Innenstadt.
-
-        </p>
-
-
-
-        <div class="damals-heute">
-
-
-          <!-- ALTES BILD -->
-
-
-          <div class="vergleich">
-
-
-            <div class="bildtitel">
-
-              Damals
-
-            </div>
-
-
-            <img
-              class="koenigshof-bild"
-              src="bilder/Königshof Essen alt.jpeg"
-              alt="Historische Ansicht des Königshofs in Essen"
-            >
-
-
+        <div>
+          <div class="bildtitel">
+            Damals
           </div>
 
+          <img
+            class="koenigshof-bild"
+            src="bilder/Königshof Essen alt.jpeg"
+            alt="Historische Ansicht des Königshofs"
+          >
+        </div>
 
-
-          <!-- NEUES BILD -->
-
-
-          <div class="vergleich">
-
-
-            <div class="bildtitel">
-
-              Heute
-
-            </div>
-
-
-            <img
-              class="koenigshof-bild"
-              src="bilder/Königshof Essen neu.jpg"
-              alt="Der Königshof in Essen heute"
-            >
-
-
+        <div>
+          <div class="bildtitel">
+            Heute
           </div>
 
-
+          <img
+            class="koenigshof-bild"
+            src="bilder/Königshof Essen neu.jpg"
+            alt="Der Königshof heute"
+          >
         </div>
 
-
       </div>
-
-
-
-      <!-- =====================================
-           MARKTHALLE
-           ===================================== -->
-
-
-      <div class="karte akzent">
-
-
-        <h3>
-
-          Mehr Abwechslung als jede Kantine?
-
-        </h3>
-
-
-        <p>
-
-          Wer künftig in der Mittagspause vor der Frage
-          „Was essen wir heute?“ steht, muss nicht
-          besonders weit gehen.
-
-        </p>
-
-
-        <p>
-
-          Erkunden Sie gemeinsam die
-
-          <strong>
-            Markthalle im Königshof
-          </strong>
-
-          und verschaffen Sie sich einen Überblick
-          über das gastronomische Angebot.
-
-        </p>
-
-
-        <div class="info">
-
-          Vielleicht entdecken Sie dabei bereits
-          einen zukünftigen Favoriten für die
-          Mittagspause.
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- =====================================
-           FOTO CHALLENGE
-           ===================================== -->
-
-
-      <div class="karte foto">
-
-
-        <div class="foto-symbol">
-
-          📷
-
-        </div>
-
-
-        <h3>
-
-          Foto-Challenge
-
-        </h3>
-
-
-        <p>
-
-          In der Markthalle geht es international zu.
-
-          An einer Stelle allerdings wird es deutlich
-
-          <strong>
-            zünftiger.
-          </strong>
-
-        </p>
-
-
-        <p>
-
-          <strong>
-
-            Finden Sie den Ort, an dem es
-            besonders zünftig zugeht.
-
-          </strong>
-
-        </p>
-
-
-        <p>
-
-          Wenn Sie ihn gefunden haben, machen Sie
-          dort ein Foto mit mindestens
-
-          <strong>
-            drei Teammitgliedern.
-          </strong>
-
-        </p>
-
-
-        <p>
-
-          Das Foto bitte mit der normalen Kamera
-          Ihres Smartphones aufnehmen und gut
-          aufbewahren.
-
-          Es bekommt bei der Weihnachtsfeier
-          möglicherweise noch seinen großen Auftritt.
-
-        </p>
-
-
-        <button
-          class="button"
-          type="button"
-          onclick="missionGeschafft()"
-        >
-
-          ✓ Foto gemacht
-
-        </button>
-
-
-      </div>
-
 
     </div>
 
 
-  </section>
+    <div class="karte akzent">
 
+      <h3>
+        Mehr Abwechslung als jede Kantine?
+      </h3>
 
+      <p>
+        Wer künftig in der Mittagspause vor der Frage
+        „Was essen wir heute?“ steht, muss nicht besonders
+        weit gehen.
+      </p>
 
-  <!-- =========================================
-       ABSCHLUSS
-       ========================================= -->
+      <p>
+        Erkunden Sie gemeinsam die
+        <strong>Markthalle im Königshof</strong>
+        und verschaffen Sie sich einen Überblick über
+        das gastronomische Angebot.
+      </p>
 
-
-  <section
-    id="abschluss"
-    class="seite"
-  >
-
-
-    <div class="container">
-
-
-      <div class="abschluss-box">
-
-
-        <div class="check">
-
-          ✓
-
-        </div>
-
-
-        <h2>
-
-          Mission 1 geschafft
-
-        </h2>
-
-
-        <p>
-
-          Sie haben den Königshof und damit einen Teil
-          unserer neuen Nachbarschaft kennengelernt.
-
-        </p>
-
-
-        <p>
-
-          In der vollständigen Weihnachtsrallye führt
-          die nächste Mission von hier weiter in die
-          Essener Innenstadt und auf den Weihnachtsmarkt.
-
-        </p>
-
-
-        <p>
-
-          <strong>
-
-            Für die Testversion ist hier erst einmal Schluss.
-
-          </strong>
-
-        </p>
-
-
-        <button
-          class="button"
-          type="button"
-          onclick="neuStarten()"
-        >
-
-          Test erneut starten
-
-        </button>
-
-
+      <div class="info">
+        Vielleicht entdecken Sie dabei bereits einen
+        zukünftigen Favoriten für die Mittagspause.
       </div>
-
 
     </div>
 
 
-  </section>
+    <div class="karte foto">
+
+      <div class="foto-symbol">
+        📷
+      </div>
+
+      <h3>
+        Foto-Challenge
+      </h3>
+
+      <p>
+        In der Markthalle geht es international zu.
+        An einer Stelle allerdings wird es deutlich
+        <strong>zünftiger.</strong>
+      </p>
+
+      <p>
+        <strong>
+          Finden Sie den Ort, an dem es besonders
+          zünftig zugeht.
+        </strong>
+      </p>
+
+      <p>
+        Wenn Sie ihn gefunden haben, machen Sie dort
+        ein Foto mit mindestens
+        <strong>drei Teammitgliedern.</strong>
+      </p>
+
+      <p>
+        Das Foto bitte mit der normalen Kamera Ihres
+        Smartphones aufnehmen und gut aufbewahren.
+      </p>
+
+      <button
+        class="button"
+        onclick="mission1Geschafft()"
+      >
+        ✓ Foto gemacht · Weiter zu Mission 2
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
 
+<!-- =========================================
+     MISSION 2
+     ========================================= -->
 
-  <!-- =========================================
-       JAVASCRIPT
-       ========================================= -->
+<section id="mission2" class="seite">
+
+  <div class="container">
+
+    <div class="missionskopf">
+
+      <span class="mission-label">
+        Mission 2 von 6
+      </span>
+
+      <div class="fortschritt">
+        <div class="fortschritt-2"></div>
+      </div>
+
+      <h2>
+        Jetzt wird es weihnachtlich
+      </h2>
+
+      <p>
+        Direkt vor dem Königshof beginnt auf dem
+        <strong>Willy-Brandt-Platz</strong> der
+        Internationale Weihnachtsmarkt Essen.
+      </p>
+
+    </div>
 
 
-  <script>
+    <!-- WEG UND PYRAMIDE -->
+
+    <div class="karte">
+
+      <h3>
+        Ihr nächstes Ziel
+      </h3>
+
+      <p>
+        Verlassen Sie den Königshof in Richtung
+        <strong>Willy-Brandt-Platz</strong>.
+      </p>
+
+      <p>
+        Halten Sie Ausschau nach einem Bauwerk,
+        das zwischen den Weihnachtsmarktständen
+        kaum zu übersehen ist:
+      </p>
+
+      <p>
+        <strong>
+          der großen Essener Weihnachtspyramide.
+        </strong>
+      </p>
+
+      <p>
+        Gehen Sie gemeinsam bis zur Pyramide.
+        Dort wartet die nächste Aufgabe.
+      </p>
+
+      <img
+        class="pyramidenbild"
+        src="bilder/Weihnachtspyramide.png"
+        alt="Essener Weihnachtspyramide"
+      >
+
+    </div>
 
 
-    function zeigeSeite(id) {
+    <!-- MULTIPLE CHOICE -->
+
+    <div class="karte akzent">
+
+      <h3>
+        🔎 Genau hingeschaut
+      </h3>
+
+      <p>
+        Bevor es weitergeht, werfen Sie einen
+        genaueren Blick auf die Weihnachtspyramide.
+      </p>
+
+      <p>
+        <strong>
+          Wie viele Ebenen mit Figuren und Szenen
+          hat die Essener Weihnachtspyramide?
+        </strong>
+      </p>
+
+      <div class="antworten">
+
+        <button
+          class="antwort"
+          onclick="pruefeAntwort(this, false)"
+        >
+          A · 3 Ebenen
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeAntwort(this, true)"
+        >
+          B · 4 Ebenen
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeAntwort(this, false)"
+        >
+          C · 5 Ebenen
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeAntwort(this, false)"
+        >
+          D · 6 Ebenen
+        </button>
+
+      </div>
 
 
-      const seiten =
-        document.querySelectorAll('.seite');
+      <div
+        id="feedbackFalsch"
+        class="feedback feedback-falsch"
+      >
+        <strong>Noch nicht ganz.</strong><br>
+        Schauen Sie sich die Pyramide noch einmal
+        genauer an.
+      </div>
 
 
-      seiten.forEach(function(seite) {
+      <div
+        id="feedbackRichtig"
+        class="feedback feedback-richtig"
+      >
+        <strong>✓ Richtig!</strong><br><br>
 
-        seite.classList.remove('aktiv');
+        Die Weihnachtspyramide erstreckt sich über
+        vier Ebenen, auf denen verschiedene Figuren
+        und Szenen zu sehen sind.
 
+        <br><br>
+
+        Praktischerweise befindet sich direkt unter
+        der Pyramide einer der zahlreichen
+        Glühweinstände des Essener Weihnachtsmarktes.
+
+        <strong>
+          Was Sie mit dieser Information anfangen,
+          bleibt selbstverständlich Ihnen überlassen.
+        </strong>
+      </div>
+
+    </div>
+
+
+    <!-- FOTO CHALLENGE WIRD ERST NACH
+         RICHTIGER ANTWORT SICHTBAR -->
+
+    <div
+      id="fotoMission2"
+      class="karte foto"
+    >
+
+      <div class="foto-symbol">
+        📷
+      </div>
+
+      <h3>
+        Foto-Challenge
+      </h3>
+
+      <p>
+        Jetzt ist die Weihnachtspyramide die Kulisse
+        für Ihre nächste Foto-Challenge.
+      </p>
+
+      <p>
+        <strong>
+          Machen Sie 2–3 unterschiedliche Gruppenfotos
+          vor der Weihnachtspyramide.
+        </strong>
+      </p>
+
+      <p>
+        Versuchen Sie dabei, möglichst viele
+        Teammitglieder und möglichst viel von der
+        Pyramide aufs Bild zu bekommen.
+      </p>
+
+      <p>
+        Wechseln Sie ruhig einmal Perspektive oder
+        Aufstellung. Schließlich sollen später bei
+        der Weihnachtsfeier auch ein paar vorzeigbare
+        Exemplare dabei sein.
+      </p>
+
+      <button
+        class="button"
+        onclick="mission2Geschafft()"
+      >
+        ✓ Fotos gemacht
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     TEST-ABSCHLUSS
+     ========================================= -->
+
+<section id="abschluss" class="seite">
+
+  <div class="container">
+
+    <div class="abschluss-box">
+
+      <div class="check">
+        ✓
+      </div>
+
+      <h2>
+        Mission 2 geschafft
+      </h2>
+
+      <p>
+        Sie haben die ersten beiden Stationen
+        der Winterrallye erfolgreich absolviert.
+      </p>
+
+      <p>
+        In der vollständigen Rallye würde es
+        von hier aus mit Mission 3 weitergehen.
+      </p>
+
+      <p>
+        <strong>
+          Für unsere Testversion ist hier
+          vorerst Schluss.
+        </strong>
+      </p>
+
+      <button
+        class="button"
+        onclick="testNeuStarten()"
+      >
+        Test erneut starten
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+  /* SEITEN WECHSELN */
+
+  function zeigeSeite(id) {
+
+    const seiten =
+      document.querySelectorAll('.seite');
+
+    seiten.forEach(function(seite) {
+      seite.classList.remove('aktiv');
+    });
+
+    const ziel =
+      document.getElementById(id);
+
+    if (ziel) {
+      ziel.classList.add('aktiv');
+      window.scrollTo(0, 0);
+    }
+
+  }
+
+
+  /* MISSION 1 */
+
+  function mission1Geschafft() {
+
+    localStorage.setItem(
+      'winterrallye_mission1',
+      'geschafft'
+    );
+
+    zeigeSeite('mission2');
+
+  }
+
+
+  /* MULTIPLE CHOICE */
+
+  function pruefeAntwort(button, richtig) {
+
+    const antworten =
+      document.querySelectorAll('.antwort');
+
+    const feedbackFalsch =
+      document.getElementById('feedbackFalsch');
+
+    const feedbackRichtig =
+      document.getElementById('feedbackRichtig');
+
+    const fotoMission2 =
+      document.getElementById('fotoMission2');
+
+
+    feedbackFalsch.classList.remove('sichtbar');
+
+
+    if (richtig) {
+
+      antworten.forEach(function(antwort) {
+        antwort.classList.remove('falsch');
       });
 
+      button.classList.add('richtig');
 
-      const ziel =
-        document.getElementById(id);
+      feedbackRichtig.classList.add('sichtbar');
 
-
-      if (ziel) {
-
-        ziel.classList.add('aktiv');
-
-        window.scrollTo(0, 0);
-
-      }
-
-    }
-
-
-
-    function missionGeschafft() {
-
+      fotoMission2.classList.add('sichtbar');
 
       localStorage.setItem(
-
-        'weihnachtsrallye_mission1',
-
-        'geschafft'
-
+        'winterrallye_frage2',
+        'richtig'
       );
 
+      setTimeout(function() {
 
-      zeigeSeite('abschluss');
+        fotoMission2.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+      }, 500);
 
     }
 
+    else {
 
+      button.classList.add('falsch');
 
-    function neuStarten() {
-
-
-      localStorage.removeItem(
-
-        'weihnachtsrallye_mission1'
-
-      );
-
-
-      zeigeSeite('start');
+      feedbackFalsch.classList.add('sichtbar');
 
     }
 
+  }
 
 
-    const status =
-      localStorage.getItem(
-        'weihnachtsrallye_mission1'
-      );
+  /* MISSION 2 */
+
+  function mission2Geschafft() {
+
+    localStorage.setItem(
+      'winterrallye_mission2',
+      'geschafft'
+    );
+
+    zeigeSeite('abschluss');
+
+  }
 
 
-    if (status === 'geschafft') {
+  /* TEST ZURÜCKSETZEN */
 
-      zeigeSeite('abschluss');
+  function testNeuStarten() {
+
+    localStorage.removeItem(
+      'winterrallye_mission1'
+    );
+
+    localStorage.removeItem(
+      'winterrallye_frage2'
+    );
+
+    localStorage.removeItem(
+      'winterrallye_mission2'
+    );
+
+    location.reload();
+
+  }
+
+
+  /* GESPEICHERTEN STAND WIEDERHERSTELLEN */
+
+  const mission1Status =
+    localStorage.getItem(
+      'winterrallye_mission1'
+    );
+
+  const frage2Status =
+    localStorage.getItem(
+      'winterrallye_frage2'
+    );
+
+  const mission2Status =
+    localStorage.getItem(
+      'winterrallye_mission2'
+    );
+
+
+  if (mission2Status === 'geschafft') {
+
+    zeigeSeite('abschluss');
+
+  }
+
+  else if (mission1Status === 'geschafft') {
+
+    zeigeSeite('mission2');
+
+    if (frage2Status === 'richtig') {
+
+      document
+        .getElementById('feedbackRichtig')
+        .classList
+        .add('sichtbar');
+
+      document
+        .getElementById('fotoMission2')
+        .classList
+        .add('sichtbar');
 
     }
 
+  }
 
-  </script>
-
+</script>
 
 </body>
-
 </html>
