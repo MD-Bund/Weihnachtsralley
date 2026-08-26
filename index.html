@@ -2,11 +2,626 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Weihnachtsrallye</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Weihnachtsrallye | Medizinischer Dienst Bund</title>
+
+  <style>
+    :root {
+      --dunkelblau: #004b6e;
+      --blau: #06688f;
+      --tuerkis: #0099c6;
+      --helltuerkis: #5ec4e1;
+      --hellblau: #d5ecf4;
+      --weiss: #ffffff;
+      --schwarz: #111111;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Calibri, Arial, sans-serif;
+      color: var(--schwarz);
+      background: var(--hellblau);
+    }
+
+    /* ---------- ALLGEMEIN ---------- */
+
+    .seite {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .seite.aktiv {
+      display: block;
+    }
+
+    .container {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 70px;
+    }
+
+    .logo {
+      width: min(330px, 75vw);
+      height: auto;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      color: var(--dunkelblau);
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 8vw, 4.5rem);
+      line-height: 1;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 6vw, 2.7rem);
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
+
+    p {
+      font-size: 1.12rem;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      width: 100%;
+      max-width: 420px;
+      padding: 17px 24px;
+      margin-top: 18px;
+
+      border: none;
+      border-radius: 10px;
+
+      background: var(--tuerkis);
+      color: var(--weiss);
+
+      font-family: Calibri, Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: bold;
+
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--blau);
+    }
+
+    .button:focus {
+      outline: 4px solid var(--helltuerkis);
+      outline-offset: 3px;
+    }
+
+    /* ---------- STARTSEITE ---------- */
+
+    #start {
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          rgba(0, 75, 110, 0.15),
+          rgba(0, 75, 110, 0.15)
+        ),
+        url("bilder/Vikohintergrund_MD_bund.png");
+
+      background-size: cover;
+      background-position: center;
+      color: var(--weiss);
+    }
+
+    #start .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #start h1,
+    #start h2,
+    #start p {
+      color: var(--weiss);
+    }
+
+    .start-inhalt {
+      padding: 50px 0;
+      max-width: 650px;
+    }
+
+    .start-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: bold;
+      color: var(--helltuerkis) !important;
+    }
+
+    .start-subtitle {
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      max-width: 560px;
+    }
+
+    /* ---------- MISSION ---------- */
+
+    #mission1 {
+      background:
+        linear-gradient(
+          rgba(213, 236, 244, 0.88),
+          rgba(213, 236, 244, 0.94)
+        ),
+        url("bilder/Vikohintergrund_MD_bund_hellblau.png");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .missionskopf {
+      margin-bottom: 30px;
+    }
+
+    .mission-label {
+      display: inline-block;
+      background: var(--dunkelblau);
+      color: var(--weiss);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .fortschritt {
+      height: 8px;
+      background: rgba(0, 75, 110, 0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 35px;
+    }
+
+    .fortschritt > div {
+      width: 16.666%;
+      height: 100%;
+      background: var(--tuerkis);
+    }
+
+    /* ---------- KARTEN ---------- */
+
+    .karte {
+      background: rgba(255,255,255,0.94);
+      border-radius: 16px;
+      padding: 26px;
+      margin: 22px 0;
+      border: 1px solid rgba(0,75,110,0.12);
+    }
+
+    .karte.akzent {
+      border-left: 7px solid var(--tuerkis);
+    }
+
+    .karte.foto {
+      background: var(--dunkelblau);
+      color: var(--weiss);
+    }
+
+    .karte.foto h3 {
+      color: var(--weiss);
+    }
+
+    .karte.foto .button {
+      background: var(--weiss);
+      color: var(--dunkelblau);
+    }
+
+    /* ---------- DAMALS / HEUTE ---------- */
+
+    .damals-heute {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .bildplatzhalter {
+      min-height: 180px;
+      background: var(--hellblau);
+      border: 2px dashed var(--helltuerkis);
+      border-radius: 12px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      padding: 20px;
+      color: var(--dunkelblau);
+      font-weight: bold;
+    }
+
+    .bildtitel {
+      font-size: 0.95rem;
+      color: var(--blau);
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    /* ---------- ABSCHLUSS ---------- */
+
+    #abschluss {
+      min-height: 100vh;
+      background: url("bilder/Vikohintergrund_MD_bund.png");
+      background-size: cover;
+      background-position: center;
+      color: var(--weiss);
+    }
+
+    #abschluss .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .abschluss-box {
+      max-width: 650px;
+    }
+
+    #abschluss h1,
+    #abschluss h2,
+    #abschluss p {
+      color: var(--weiss);
+    }
+
+    .check {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    /* ---------- SMARTPHONE ---------- */
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 24px, 900px);
+        padding-top: 25px;
+      }
+
+      .damals-heute {
+        grid-template-columns: 1fr;
+      }
+
+      .karte {
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      p {
+        font-size: 1.05rem;
+      }
+
+      #mission1 {
+        background-attachment: scroll;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
-  <h1>Test Weihnachtsrallye</h1>
-  <p>Wenn du das siehst, funktioniert GitHub Pages.</p>
+
+  <!-- =========================================
+       STARTSEITE
+       ========================================= -->
+
+  <section id="start" class="seite aktiv">
+
+    <div class="container">
+
+      <img
+        class="logo"
+        src="bilder/Logo Medizinischer Bund.png"
+        alt="Medizinischer Dienst Bund"
+      >
+
+      <div class="start-inhalt">
+
+        <p class="start-kicker">
+          Willkommen in Essen
+        </p>
+
+        <h1>
+          Weihnachts&shy;rallye 2026
+        </h1>
+
+        <p class="start-subtitle">
+          Entdecken Sie die neue Nachbarschaft des
+          Medizinischen Dienstes Bund und erleben Sie
+          die Essener Innenstadt zur Weihnachtszeit.
+        </p>
+
+        <button
+          class="button"
+          type="button"
+          onclick="zeigeSeite('mission1')"
+        >
+          Mission starten
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       MISSION 1
+       ========================================= -->
+
+  <section id="mission1" class="seite">
+
+    <div class="container">
+
+      <div class="missionskopf">
+
+        <span class="mission-label">
+          Mission 1 von 6
+        </span>
+
+        <div class="fortschritt">
+          <div></div>
+        </div>
+
+        <h2>
+          Neue Nachbarschaft:
+          Der Königshof
+        </h2>
+
+        <p>
+          Bevor es weiter in die Essener Innenstadt geht,
+          beginnen wir direkt vor unserer neuen Haustür.
+        </p>
+
+      </div>
+
+
+      <!-- GESCHICHTE -->
+
+      <div class="karte">
+
+        <h3>
+          Damals &amp; heute
+        </h3>
+
+        <p>
+          Der Standort am Willy-Brandt-Platz blickt auf eine
+          lange Geschichte als Handelsstandort zurück.
+          Über Jahrzehnte prägten große Warenhäuser diesen
+          zentralen Eingang zur Essener Innenstadt.
+        </p>
+
+        <p>
+          Heute verbindet der neu gestaltete Königshof
+          Handel, Gastronomie und moderne Arbeitswelten
+          direkt zwischen Hauptbahnhof und Innenstadt.
+        </p>
+
+        <div class="damals-heute">
+
+          <div>
+            <div class="bildtitel">DAMALS</div>
+
+            <div class="bildplatzhalter">
+              Historisches Bild des Königshofs
+              kommt hier hinein.
+            </div>
+          </div>
+
+          <div>
+            <div class="bildtitel">HEUTE</div>
+
+            <div class="bildplatzhalter">
+              Aktuelles Bild des Königshofs
+              kommt hier hinein.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MARKTHALLE -->
+
+      <div class="karte akzent">
+
+        <h3>
+          Mehr Abwechslung als jede Kantine?
+        </h3>
+
+        <p>
+          Wer künftig in der Mittagspause vor der Frage
+          „Was essen wir heute?“ steht, muss nicht besonders
+          weit gehen.
+        </p>
+
+        <p>
+          Erkunden Sie gemeinsam die
+          <strong>Markthalle im Königshof</strong>
+          und verschaffen Sie sich einen Überblick über
+          das gastronomische Angebot.
+        </p>
+
+        <p>
+          Vielleicht entdecken Sie dabei bereits einen
+          zukünftigen Favoriten für die Mittagspause.
+        </p>
+
+      </div>
+
+
+      <!-- FOTO-CHALLENGE -->
+
+      <div class="karte foto">
+
+        <h3>
+          📷 Foto-Challenge
+        </h3>
+
+        <p>
+          In der Markthalle geht es international zu.
+          An einer Stelle allerdings wird es deutlich
+          <strong>zünftiger</strong>.
+        </p>
+
+        <p>
+          <strong>
+            Finden Sie den Ort, an dem es besonders
+            zünftig zugeht.
+          </strong>
+        </p>
+
+        <p>
+          Wenn Sie ihn gefunden haben, machen Sie dort
+          ein Foto mit mindestens
+          <strong>drei Teammitgliedern</strong>.
+        </p>
+
+        <p>
+          Das Foto bitte mit der normalen Kamera Ihres
+          Smartphones aufnehmen und gut aufbewahren.
+          Es bekommt bei der Weihnachtsfeier möglicherweise
+          noch seinen großen Auftritt.
+        </p>
+
+        <button
+          class="button"
+          type="button"
+          onclick="missionGeschafft()"
+        >
+          ✓ Foto gemacht
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       ABSCHLUSS TESTVERSION
+       ========================================= -->
+
+  <section id="abschluss" class="seite">
+
+    <div class="container">
+
+      <div class="abschluss-box">
+
+        <div class="check">✓</div>
+
+        <h2>
+          Mission 1 geschafft
+        </h2>
+
+        <p>
+          Sie haben den Königshof und damit einen Teil
+          unserer neuen Nachbarschaft kennengelernt.
+        </p>
+
+        <p>
+          In der vollständigen Weihnachtsrallye führt
+          die nächste Mission von hier weiter in die
+          Essener Innenstadt und auf den Weihnachtsmarkt.
+        </p>
+
+        <p>
+          <strong>
+            Für die Testversion ist hier erst einmal Schluss.
+          </strong>
+        </p>
+
+        <button
+          class="button"
+          type="button"
+          onclick="neuStarten()"
+        >
+          Test erneut starten
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    function zeigeSeite(id) {
+
+      const seiten = document.querySelectorAll('.seite');
+
+      seiten.forEach(function(seite) {
+        seite.classList.remove('aktiv');
+      });
+
+      const ziel = document.getElementById(id);
+
+      if (ziel) {
+        ziel.classList.add('aktiv');
+        window.scrollTo(0, 0);
+      }
+    }
+
+
+    function missionGeschafft() {
+
+      localStorage.setItem(
+        'weihnachtsrallye_mission1',
+        'geschafft'
+      );
+
+      zeigeSeite('abschluss');
+    }
+
+
+    function neuStarten() {
+
+      localStorage.removeItem(
+        'weihnachtsrallye_mission1'
+      );
+
+      zeigeSeite('start');
+    }
+
+
+    /* Prüfen, ob Mission 1 auf diesem Gerät
+       bereits abgeschlossen wurde */
+
+    const status = localStorage.getItem(
+      'weihnachtsrallye_mission1'
+    );
+
+    if (status === 'geschafft') {
+      zeigeSeite('abschluss');
+    }
+
+  </script>
+
 </body>
 </html>
