@@ -14,6 +14,7 @@
       --helltuerkis: #5ec4e1;
       --hellblau: #d5ecf4;
       --gruen: #3e8825;
+      --orange: #d96b24;
       --weiss: #ffffff;
       --schwarz: #111111;
     }
@@ -48,7 +49,9 @@
       padding: 40px 0 70px;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       color: var(--dunkelblau);
     }
 
@@ -67,9 +70,14 @@
       font-size: 1.4rem;
     }
 
-    p {
-      font-size: 1.12rem;
+    p,
+    li {
+      font-size: 1.1rem;
       line-height: 1.6;
+    }
+
+    strong {
+      font-weight: 700;
     }
 
     /* BUTTONS */
@@ -77,7 +85,7 @@
     .button {
       display: inline-block;
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       padding: 17px 24px;
       margin-top: 18px;
 
@@ -99,7 +107,12 @@
       background: var(--blau);
     }
 
-    /* STARTSEITE */
+    .button:focus {
+      outline: 4px solid var(--helltuerkis);
+      outline-offset: 3px;
+    }
+
+    /* START */
 
     #start {
       min-height: 100vh;
@@ -117,14 +130,13 @@
     #start .container {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
     }
 
     .start-inhalt {
       max-width: 620px;
       padding: 35px;
-      background: rgba(0, 75, 110, 0.55);
+      background: rgba(0, 75, 110, 0.56);
       border-radius: 18px;
       backdrop-filter: blur(2px);
     }
@@ -147,10 +159,13 @@
       max-width: 560px;
     }
 
-    /* MISSIONSSEITEN */
+    /* MISSIONSHINTERGRUND */
 
     #mission1,
-    #mission2 {
+    #mission2,
+    #mission3,
+    #zwischenchallenge,
+    #mission4 {
       background:
         linear-gradient(
           rgba(213, 236, 244, 0.90),
@@ -177,6 +192,16 @@
       margin-bottom: 15px;
     }
 
+    .zwischen-label {
+      display: inline-block;
+      background: var(--tuerkis);
+      color: var(--weiss);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
     /* FORTSCHRITT */
 
     .fortschritt {
@@ -192,13 +217,10 @@
       background: var(--tuerkis);
     }
 
-    .fortschritt-1 {
-      width: 16.666%;
-    }
-
-    .fortschritt-2 {
-      width: 33.333%;
-    }
+    .fortschritt-1 { width: 16.666%; }
+    .fortschritt-2 { width: 33.333%; }
+    .fortschritt-3 { width: 50%; }
+    .fortschritt-4 { width: 66.666%; }
 
     /* KARTEN */
 
@@ -218,6 +240,29 @@
       border-left: 7px solid var(--tuerkis);
     }
 
+    .karte.wegbeschreibung {
+      border-left: 7px solid var(--blau);
+    }
+
+    .karte.foto {
+      background: var(--dunkelblau);
+      color: var(--weiss);
+    }
+
+    .karte.foto h3 {
+      color: var(--weiss);
+    }
+
+    .karte.foto .button {
+      background: var(--weiss);
+      color: var(--dunkelblau);
+    }
+
+    .karte.zwischen {
+      background: #eefafd;
+      border: 2px solid var(--helltuerkis);
+    }
+
     .info {
       margin-top: 20px;
       padding: 18px 20px;
@@ -226,7 +271,42 @@
       color: var(--dunkelblau);
     }
 
-    /* DAMALS & HEUTE */
+    .hinweis {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: #f4f8fa;
+      border-left: 5px solid var(--tuerkis);
+      border-radius: 8px;
+    }
+
+    .weg-schritt {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin: 16px 0;
+    }
+
+    .weg-zahl {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--dunkelblau);
+      color: var(--weiss);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .weg-text {
+      flex: 1;
+      padding-top: 3px;
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    /* BILDER MISSION 1 + 2 */
 
     .damals-heute {
       display: grid;
@@ -252,8 +332,6 @@
       border-radius: 12px;
     }
 
-    /* WEIHNACHTSPYRAMIDE */
-
     .pyramidenbild {
       display: block;
       width: 100%;
@@ -262,22 +340,6 @@
       object-position: center;
       border-radius: 14px;
       margin-top: 20px;
-    }
-
-    /* FOTO CHALLENGE */
-
-    .karte.foto {
-      background: var(--dunkelblau);
-      color: var(--weiss);
-    }
-
-    .karte.foto h3 {
-      color: var(--weiss);
-    }
-
-    .karte.foto .button {
-      background: var(--weiss);
-      color: var(--dunkelblau);
     }
 
     .foto-symbol {
@@ -323,7 +385,7 @@
 
     .antwort.falsch {
       background: #fff3e8;
-      border-color: #d94c12;
+      border-color: var(--orange);
       color: #8a2f0b;
     }
 
@@ -350,13 +412,11 @@
       color: #8a2f0b;
     }
 
-    /* Foto-Challenge Mission 2 zunächst verstecken */
-
-    #fotoMission2 {
+    .versteckt {
       display: none;
     }
 
-    #fotoMission2.sichtbar {
+    .sichtbar {
       display: block;
     }
 
@@ -410,18 +470,14 @@
 
       .start-inhalt {
         padding: 25px;
-        margin-top: 110px;
+        margin-top: 100px;
       }
 
       .damals-heute {
         grid-template-columns: 1fr;
       }
 
-      .koenigshof-bild {
-        height: auto;
-        max-height: 400px;
-      }
-
+      .koenigshof-bild,
       .pyramidenbild {
         height: auto;
         max-height: none;
@@ -431,12 +487,16 @@
         padding: 20px;
       }
 
-      p {
+      p,
+      li {
         font-size: 1.05rem;
       }
 
       #mission1,
-      #mission2 {
+      #mission2,
+      #mission3,
+      #zwischenchallenge,
+      #mission4 {
         background-attachment: scroll;
       }
     }
@@ -447,9 +507,9 @@
 <body>
 
 
-<!-- =========================================
+<!-- ======================================================
      START
-     ========================================= -->
+     ====================================================== -->
 
 <section id="start" class="seite aktiv">
 
@@ -473,6 +533,7 @@
 
       <button
         class="button"
+        type="button"
         onclick="zeigeSeite('mission1')"
       >
         Mission starten
@@ -485,9 +546,9 @@
 </section>
 
 
-<!-- =========================================
+<!-- ======================================================
      MISSION 1
-     ========================================= -->
+     ====================================================== -->
 
 <section id="mission1" class="seite">
 
@@ -622,16 +683,12 @@
         <strong>drei Teammitgliedern.</strong>
       </p>
 
-      <p>
-        Das Foto bitte mit der normalen Kamera Ihres
-        Smartphones aufnehmen und gut aufbewahren.
-      </p>
-
       <button
         class="button"
+        type="button"
         onclick="mission1Geschafft()"
       >
-        ✓ Foto gemacht · Weiter zu Mission 2
+        ✓ Foto gemacht · Weiter
       </button>
 
     </div>
@@ -641,9 +698,9 @@
 </section>
 
 
-<!-- =========================================
+<!-- ======================================================
      MISSION 2
-     ========================================= -->
+     ====================================================== -->
 
 <section id="mission2" class="seite">
 
@@ -672,9 +729,7 @@
     </div>
 
 
-    <!-- WEG UND PYRAMIDE -->
-
-    <div class="karte">
+    <div class="karte wegbeschreibung">
 
       <h3>
         Ihr nächstes Ziel
@@ -682,7 +737,7 @@
 
       <p>
         Verlassen Sie den Königshof in Richtung
-        <strong>Willy-Brandt-Platz</strong>.
+        Willy-Brandt-Platz.
       </p>
 
       <p>
@@ -697,11 +752,6 @@
         </strong>
       </p>
 
-      <p>
-        Gehen Sie gemeinsam bis zur Pyramide.
-        Dort wartet die nächste Aufgabe.
-      </p>
-
       <img
         class="pyramidenbild"
         src="bilder/Weihnachtspyramide.png"
@@ -711,8 +761,6 @@
     </div>
 
 
-    <!-- MULTIPLE CHOICE -->
-
     <div class="karte akzent">
 
       <h3>
@@ -720,69 +768,51 @@
       </h3>
 
       <p>
-        Bevor es weitergeht, werfen Sie einen
-        genaueren Blick auf die Weihnachtspyramide.
-      </p>
-
-      <p>
-        <strong>
-          Wie viele Ebenen mit Figuren und Szenen
-          hat die Essener Weihnachtspyramide?
-        </strong>
+        Wie viele Ebenen mit Figuren und Szenen
+        hat die Essener Weihnachtspyramide?
       </p>
 
       <div class="antworten">
 
-        <button
-          class="antwort"
-          onclick="pruefeAntwort(this, false)"
-        >
+        <button class="antwort"
+                onclick="pruefePyramide(this, false)">
           A · 3 Ebenen
         </button>
 
-        <button
-          class="antwort"
-          onclick="pruefeAntwort(this, true)"
-        >
+        <button class="antwort"
+                onclick="pruefePyramide(this, true)">
           B · 4 Ebenen
         </button>
 
-        <button
-          class="antwort"
-          onclick="pruefeAntwort(this, false)"
-        >
+        <button class="antwort"
+                onclick="pruefePyramide(this, false)">
           C · 5 Ebenen
         </button>
 
-        <button
-          class="antwort"
-          onclick="pruefeAntwort(this, false)"
-        >
+        <button class="antwort"
+                onclick="pruefePyramide(this, false)">
           D · 6 Ebenen
         </button>
 
       </div>
 
-
       <div
-        id="feedbackFalsch"
+        id="pyramideFalsch"
         class="feedback feedback-falsch"
       >
         <strong>Noch nicht ganz.</strong><br>
         Schauen Sie sich die Pyramide noch einmal
-        genauer an.
+        etwas genauer an.
       </div>
 
-
       <div
-        id="feedbackRichtig"
+        id="pyramideRichtig"
         class="feedback feedback-richtig"
       >
         <strong>✓ Richtig!</strong><br><br>
 
         Die Weihnachtspyramide erstreckt sich über
-        vier Ebenen, auf denen verschiedene Figuren
-        und Szenen zu sehen sind.
+        vier Ebenen.
 
         <br><br>
 
@@ -799,12 +829,9 @@
     </div>
 
 
-    <!-- FOTO CHALLENGE WIRD ERST NACH
-         RICHTIGER ANTWORT SICHTBAR -->
-
     <div
       id="fotoMission2"
-      class="karte foto"
+      class="karte foto versteckt"
     >
 
       <div class="foto-symbol">
@@ -816,15 +843,11 @@
       </h3>
 
       <p>
-        Jetzt ist die Weihnachtspyramide die Kulisse
-        für Ihre nächste Foto-Challenge.
-      </p>
-
-      <p>
+        Machen Sie
         <strong>
-          Machen Sie 2–3 unterschiedliche Gruppenfotos
-          vor der Weihnachtspyramide.
+          2–3 unterschiedliche Gruppenfotos
         </strong>
+        vor der Weihnachtspyramide.
       </p>
 
       <p>
@@ -833,18 +856,12 @@
         Pyramide aufs Bild zu bekommen.
       </p>
 
-      <p>
-        Wechseln Sie ruhig einmal Perspektive oder
-        Aufstellung. Schließlich sollen später bei
-        der Weihnachtsfeier auch ein paar vorzeigbare
-        Exemplare dabei sein.
-      </p>
-
       <button
         class="button"
+        type="button"
         onclick="mission2Geschafft()"
       >
-        ✓ Fotos gemacht
+        ✓ Fotos gemacht · Weiter
       </button>
 
     </div>
@@ -854,9 +871,699 @@
 </section>
 
 
-<!-- =========================================
-     TEST-ABSCHLUSS
-     ========================================= -->
+<!-- ======================================================
+     MISSION 3
+     ====================================================== -->
+
+<section id="mission3" class="seite">
+
+  <div class="container">
+
+    <div class="missionskopf">
+
+      <span class="mission-label">
+        Mission 3 von 6
+      </span>
+
+      <div class="fortschritt">
+        <div class="fortschritt-3"></div>
+      </div>
+
+      <h2>
+        Eine kleine Zeitreise
+      </h2>
+
+      <p>
+        Für die nächste Station verlassen wir den
+        Weihnachtsmarkt für einen Moment und werfen
+        einen Blick auf ein anderes Essen.
+      </p>
+
+    </div>
+
+
+    <div class="karte wegbeschreibung">
+
+      <h3>
+        🚶 Ihr Weg
+      </h3>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">1</div>
+        <div class="weg-text">
+          Stellen Sie sich an der Weihnachtspyramide
+          mit dem <strong>Rücken zum Essener Hauptbahnhof</strong>.
+        </div>
+      </div>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">2</div>
+        <div class="weg-text">
+          Vor Ihnen liegt die
+          <strong>Kettwiger Straße</strong>.
+          Folgen Sie dieser Fußgängerzone etwa
+          <strong>300 bis 350 Meter geradeaus</strong>.
+          Rechnen Sie mit ungefähr fünf Minuten Gehzeit.
+        </div>
+      </div>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">3</div>
+        <div class="weg-text">
+          Bleiben Sie auf der Kettwiger Straße,
+          bis sich auf der rechten Seite der
+          <strong>Burgplatz</strong> öffnet.
+        </div>
+      </div>
+
+      <p>
+        Dort sehen Sie ein großes Reiterdenkmal.
+        Zeit für einen kurzen Zwischenstopp.
+      </p>
+
+    </div>
+
+
+    <div class="karte akzent">
+
+      <h3>
+        🔎 Zwischenfrage
+      </h3>
+
+      <p>
+        <strong>
+          Wen zeigt das Reiterdenkmal am Burgplatz?
+        </strong>
+      </p>
+
+      <div class="antworten">
+
+        <button
+          class="antwort"
+          onclick="pruefeKaiser(this, false)"
+        >
+          A · Otto von Bismarck
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeKaiser(this, false)"
+        >
+          B · Friedrich der Große
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeKaiser(this, true)"
+        >
+          C · Kaiser Wilhelm I.
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeKaiser(this, false)"
+        >
+          D · Alfred Krupp
+        </button>
+
+      </div>
+
+      <div
+        id="kaiserFalsch"
+        class="feedback feedback-falsch"
+      >
+        <strong>Noch nicht ganz.</strong><br>
+        Ein genauer Blick auf den Sockel könnte
+        die kaiserliche Verwirrung beseitigen.
+      </div>
+
+      <div
+        id="kaiserRichtig"
+        class="feedback feedback-richtig"
+      >
+        <strong>✓ Richtig!</strong><br><br>
+
+        Das Denkmal zeigt Kaiser Wilhelm I.
+        Es wurde 1898 enthüllt und steht seit 1928
+        an seinem heutigen Standort am Burgplatz.
+      </div>
+
+    </div>
+
+
+    <div
+      id="domWeg"
+      class="karte wegbeschreibung versteckt"
+    >
+
+      <h3>
+        Jetzt wird es etwas versteckter
+      </h3>
+
+      <p>
+        Gehen Sie auf der
+        <strong>Kettwiger Straße weiter am Essener Dom entlang.</strong>
+      </p>
+
+      <p>
+        <strong>
+          Unmittelbar nachdem Sie den Dom passiert haben,
+          biegen Sie rechts in die kleine Gasse ein.
+        </strong>
+      </p>
+
+      <p>
+        Sie müssen nicht weit gehen. Die Gasse ist
+        tatsächlich so klein, dass man sie leicht übersieht.
+      </p>
+
+      <p>
+        Halten Sie Ausschau nach den sichtbaren
+        <strong>Fachwerkelementen</strong>.
+        Sie haben Ihr Ziel erreicht.
+      </p>
+
+    </div>
+
+
+    <div
+      id="altesEssen"
+      class="karte versteckt"
+    >
+
+      <h3>
+        🏘️ Ein Blick in ein anderes Essen
+      </h3>
+
+      <p>
+        Heute ist die Essener Innenstadt vor allem
+        durch die Architektur der Nachkriegszeit geprägt.
+      </p>
+
+      <p>
+        Im Zweiten Weltkrieg wurden rund
+        <strong>90 Prozent der Innenstadt zerstört</strong>.
+        Dabei gingen auch große Teile der älteren
+        Bebauung verloren.
+      </p>
+
+      <div class="info">
+        Eine kleine Zeitreise in ein Essen,
+        in dem Fachwerk zum Stadtbild gehörte und
+        Pest, Pocken &amp; Co. noch Probleme waren,
+        bei denen man sich einen modernen
+        Medizinischen Dienst vermutlich sehnlichst
+        gewünscht hätte.
+      </div>
+
+    </div>
+
+
+    <div
+      id="fotoMission3"
+      class="karte foto versteckt"
+    >
+
+      <div class="foto-symbol">
+        📷
+      </div>
+
+      <h3>
+        Foto-Challenge · Alt trifft Neu
+      </h3>
+
+      <p>
+        Machen Sie
+        <strong>2–3 unterschiedliche Fotos</strong>
+        in der kleinen Gasse mit dem Fachwerk im Hintergrund.
+      </p>
+
+      <p>
+        Auf mindestens einem Foto sollen
+        <strong>mindestens drei Teammitglieder</strong>
+        zu sehen sein.
+      </p>
+
+      <p>
+        Versuchen Sie, möglichst viel von diesem kleinen
+        historischen Winkel einzufangen.
+      </p>
+
+      <button
+        class="button"
+        type="button"
+        onclick="mission3Geschafft()"
+      >
+        ✓ Fotos gemacht · Weiter
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     ZWISCHEN-CHALLENGE
+     ====================================================== -->
+
+<section id="zwischenchallenge" class="seite">
+
+  <div class="container">
+
+    <span class="zwischen-label">
+      Zwischen-Challenge
+    </span>
+
+    <h2>
+      Zurück ins Weihnachtsgetümmel
+    </h2>
+
+
+    <div class="karte wegbeschreibung">
+
+      <p>
+        Verlassen Sie die kleine Fachwerkgasse wieder
+        in Richtung <strong>Kettwiger Straße</strong>.
+      </p>
+
+      <p>
+        Gehen Sie
+        <strong>geradeaus über die Kettwiger Straße</strong>.
+        Zwischen den beiden großen Gebäuden vor Ihnen
+        gelangen Sie wieder mitten in den Weihnachtsmarkt.
+      </p>
+
+      <div class="info">
+        Praktischerweise befindet sich in diesem Bereich
+        auch ein ausgesprochen großzügig dimensionierter
+        Glühweinstand.
+        <strong>
+          Die Rallye-Leitung überlässt die weitere Verwendung
+          dieser Information ausdrücklich den Teilnehmenden.
+        </strong>
+      </div>
+
+      <p>
+        Nehmen Sie sich ruhig einen Moment Zeit,
+        schauen Sie sich um und erkunden Sie die Stände.
+      </p>
+
+    </div>
+
+
+    <div class="karte zwischen">
+
+      <h3>
+        🎅 Eine Frage des guten Geschmacks
+      </h3>
+
+      <p>
+        Finden Sie die
+        <strong>
+          kitschigste, kurioseste oder schlicht
+          beeindruckendste Weihnachtsdekoration
+        </strong>,
+        die Sie an einem der Stände entdecken können.
+      </p>
+
+      <p>
+        Ob blinkend, glitzernd oder von einer
+        bemerkenswert großzügigen Interpretation
+        des Begriffs „festlich“ geprägt,
+        bleibt Ihrer fachkundigen Bewertung überlassen.
+      </p>
+
+      <p>
+        📷 Fotografieren Sie
+        <strong>ein bis zwei Kolleginnen oder Kollegen</strong>
+        gemeinsam mit Ihrem Fundstück.
+      </p>
+
+      <div class="info">
+        <strong>
+          Eine evidenzbasierte Bewertung von Weihnachtskitsch
+          dürfte methodisch schwierig sein.
+        </strong>
+        Für diese Rallye genügt daher ausnahmsweise
+        das Urteil Ihres Teams.
+      </div>
+
+      <button
+        class="button"
+        type="button"
+        onclick="zwischenChallengeGeschafft()"
+      >
+        ✓ Weihnachtskitsch gefunden · Weiter
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     MISSION 4
+     ====================================================== -->
+
+<section id="mission4" class="seite">
+
+  <div class="container">
+
+    <div class="missionskopf">
+
+      <span class="mission-label">
+        Mission 4 von 6
+      </span>
+
+      <div class="fortschritt">
+        <div class="fortschritt-4"></div>
+      </div>
+
+      <h2>
+        Ein Name, der Essen geprägt hat
+      </h2>
+
+    </div>
+
+
+    <div class="karte wegbeschreibung">
+
+      <h3>
+        🚶 Ihr Weg
+      </h3>
+
+      <p>
+        Gehen Sie zurück auf die
+        <strong>Kettwiger Straße</strong>
+        und folgen Sie ihr
+        <strong>weiter in derselben Richtung</strong>,
+        also vom Hauptbahnhof weg.
+      </p>
+
+      <p>
+        Bleiben Sie auf der Kettwiger Straße,
+        bis Sie die <strong>Marktkirche</strong> erreichen.
+      </p>
+
+      <p>
+        Direkt an der Marktkirche steht eine
+        bronzene Statue eines Mannes, dessen Name
+        wie kaum ein anderer mit der Entwicklung Essens
+        zur Industriestadt verbunden ist:
+      </p>
+
+      <p>
+        <strong>Alfred Krupp.</strong>
+      </p>
+
+    </div>
+
+
+    <div class="karte akzent">
+
+      <h3>
+        🔎 Kleine Zwischenfrage
+      </h3>
+
+      <p>
+        <strong>
+          Was war Alfred Krupps entscheidender Beitrag
+          zur Geschichte des Unternehmens Krupp?
+        </strong>
+      </p>
+
+      <div class="antworten">
+
+        <button
+          class="antwort"
+          onclick="pruefeKrupp(this, false)"
+        >
+          A · Er eröffnete die erste Zeche Essens.
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeKrupp(this, true)"
+        >
+          B · Er baute die von seinem Vater gegründete
+          Gussstahlfabrik zu einem der bedeutendsten
+          Industrieunternehmen Europas aus.
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeKrupp(this, false)"
+        >
+          C · Er gründete die Stadtwerke Essen.
+        </button>
+
+        <button
+          class="antwort"
+          onclick="pruefeKrupp(this, false)"
+        >
+          D · Er war mehrere Jahrzehnte
+          Oberbürgermeister der Stadt.
+        </button>
+
+      </div>
+
+      <div
+        id="kruppFalsch"
+        class="feedback feedback-falsch"
+      >
+        <strong>Noch nicht ganz.</strong><br>
+        Der Amboss, auf den sich Herr Krupp stützt,
+        könnte als kleiner Hinweis verstanden werden.
+      </div>
+
+      <div
+        id="kruppRichtig"
+        class="feedback feedback-richtig"
+      >
+        <strong>✓ Richtig!</strong><br><br>
+
+        Unter Alfred Krupp entwickelte sich die
+        Gussstahlfabrik zu einem Industrieunternehmen
+        von internationaler Bedeutung.
+        Das Wachstum von Krupp und das Wachstum Essens
+        waren im 19. Jahrhundert eng miteinander verbunden.
+      </div>
+
+    </div>
+
+
+    <div
+      id="fotoKrupp"
+      class="karte foto versteckt"
+    >
+
+      <div class="foto-symbol">
+        📷
+      </div>
+
+      <h3>
+        Foto-Challenge · Ein Treffen mit Herrn Krupp
+      </h3>
+
+      <p>
+        Machen Sie ein Foto mit
+        <strong>Alfred Krupp und mindestens drei Teammitgliedern.</strong>
+      </p>
+
+      <p>
+        Ob Herr Krupp dabei angemessen in die Gruppe
+        integriert wird, überlassen wir Ihrer Kreativität.
+      </p>
+
+      <button
+        class="button"
+        type="button"
+        onclick="kruppFotoGeschafft()"
+      >
+        ✓ Foto gemacht · Weiter ins Mittelalter
+      </button>
+
+    </div>
+
+
+    <div
+      id="mittelalterWeg"
+      class="karte wegbeschreibung versteckt"
+    >
+
+      <h3>
+        🏰 Und jetzt einige Jahrhunderte zurück
+      </h3>
+
+      <p>
+        Stellen Sie sich so, dass Sie die
+        <strong>Marktkirche vor sich</strong> haben.
+      </p>
+
+      <p>
+        Gehen Sie
+        <strong>rechts an der Marktkirche vorbei</strong>
+        und anschließend
+        <strong>geradeaus weiter</strong>.
+      </p>
+
+      <p>
+        Nach wenigen Metern erreichen Sie den
+        <strong>Flachsmarkt</strong>.
+      </p>
+
+      <p>
+        Dort verändert sich das Bild des Weihnachtsmarktes:
+        <strong>Willkommen auf dem Mittelaltermarkt.</strong>
+      </p>
+
+    </div>
+
+
+    <div
+      id="mittelalterFoto"
+      class="karte foto versteckt"
+    >
+
+      <div class="foto-symbol">
+        📷
+      </div>
+
+      <h3>
+        Foto-Challenge · Zurück ins Mittelalter
+      </h3>
+
+      <p>
+        Erkunden Sie den Mittelaltermarkt und suchen Sie
+        einen Gegenstand oder eine Kulisse,
+        die überzeugend aus einer anderen Zeit
+        stammen könnte.
+      </p>
+
+      <p>
+        Das kann ein Schild, ein Marktstand,
+        ein Trinkgefäß, ein handwerklicher Gegenstand
+        oder ein anderes mittelalterlich anmutendes
+        Fundstück sein.
+      </p>
+
+      <p>
+        <strong>
+          Machen Sie damit ein Gruppenfoto
+          mit mindestens vier Personen.
+        </strong>
+      </p>
+
+      <p>
+        Die historische Authentizität Ihres Fundstücks
+        wird von der Rallye-Leitung nicht mittels
+        Radiokarbonmethode überprüft.
+      </p>
+
+      <div class="info">
+        Für alle, deren Begeisterung für Glühwein
+        inzwischen an natürliche Grenzen stößt:
+        Auf dem Mittelaltermarkt gibt es traditionell
+        auch <strong>Met, also Honigwein.</strong><br><br>
+
+        Die Rallye-Leitung weist auf diese Alternative
+        ausschließlich im Rahmen ihres kulturellen
+        Bildungsauftrags hin.
+      </div>
+
+      <button
+        class="button"
+        type="button"
+        onclick="mittelalterGeschafft()"
+      >
+        ✓ Mittelalter erfolgreich besucht
+      </button>
+
+    </div>
+
+
+    <div
+      id="kennedyWeg"
+      class="karte wegbeschreibung versteckt"
+    >
+
+      <h3>
+        🚶 Auf zum Kennedyplatz
+      </h3>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">1</div>
+        <div class="weg-text">
+          Gehen Sie auf dem Mittelaltermarkt
+          <strong>am Met-Stand vorbei</strong>.
+        </div>
+      </div>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">2</div>
+        <div class="weg-text">
+          Gehen Sie weiter bis zur
+          <strong>Treppe</strong> und diese hinauf.
+        </div>
+      </div>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">3</div>
+        <div class="weg-text">
+          Oben angekommen,
+          <strong>biegen Sie links ab.</strong>
+        </div>
+      </div>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">4</div>
+        <div class="weg-text">
+          Gehen Sie
+          <strong>am Karussell vorbei</strong>.
+        </div>
+      </div>
+
+      <div class="weg-schritt">
+        <div class="weg-zahl">5</div>
+        <div class="weg-text">
+          Anschließend
+          <strong>biegen Sie rechts ab</strong>
+          und folgen dem Weg geradeaus.
+        </div>
+      </div>
+
+      <p>
+        Nach kurzer Zeit öffnet sich vor Ihnen der
+        <strong>Kennedyplatz</strong>.
+      </p>
+
+      <p>
+        Hier befindet sich einer der größten und
+        zentralsten Bereiche des Essener Weihnachtsmarktes.
+      </p>
+
+      <button
+        class="button"
+        type="button"
+        onclick="mission4Geschafft()"
+      >
+        ✓ Kennedyplatz erreicht
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     TESTABSCHLUSS
+     ====================================================== -->
 
 <section id="abschluss" class="seite">
 
@@ -869,28 +1576,28 @@
       </div>
 
       <h2>
-        Mission 2 geschafft
+        Test erfolgreich beendet
       </h2>
 
       <p>
-        Sie haben die ersten beiden Stationen
-        der Winterrallye erfolgreich absolviert.
+        Sie haben die bisher programmierten Stationen
+        der Winterrallye erfolgreich durchlaufen.
       </p>
 
       <p>
-        In der vollständigen Rallye würde es
-        von hier aus mit Mission 3 weitergehen.
+        In der vollständigen Version würde es vom
+        Kennedyplatz mit Mission 5 weitergehen.
       </p>
 
       <p>
         <strong>
-          Für unsere Testversion ist hier
-          vorerst Schluss.
+          Für die Testversion ist hier vorerst Schluss.
         </strong>
       </p>
 
       <button
         class="button"
+        type="button"
         onclick="testNeuStarten()"
       >
         Test erneut starten
@@ -905,7 +1612,9 @@
 
 <script>
 
-  /* SEITEN WECHSELN */
+  /* =========================================
+     SEITENWECHSEL
+     ========================================= */
 
   function zeigeSeite(id) {
 
@@ -923,11 +1632,12 @@
       ziel.classList.add('aktiv');
       window.scrollTo(0, 0);
     }
-
   }
 
 
-  /* MISSION 1 */
+  /* =========================================
+     MISSION 1
+     ========================================= */
 
   function mission1Geschafft() {
 
@@ -937,70 +1647,48 @@
     );
 
     zeigeSeite('mission2');
-
   }
 
 
-  /* MULTIPLE CHOICE */
+  /* =========================================
+     MISSION 2
+     ========================================= */
 
-  function pruefeAntwort(button, richtig) {
+  function pruefePyramide(button, richtig) {
 
-    const antworten =
-      document.querySelectorAll('.antwort');
+    const falsch =
+      document.getElementById('pyramideFalsch');
 
-    const feedbackFalsch =
-      document.getElementById('feedbackFalsch');
+    const richtigBox =
+      document.getElementById('pyramideRichtig');
 
-    const feedbackRichtig =
-      document.getElementById('feedbackRichtig');
-
-    const fotoMission2 =
-      document.getElementById('fotoMission2');
-
-
-    feedbackFalsch.classList.remove('sichtbar');
-
+    falsch.classList.remove('sichtbar');
 
     if (richtig) {
 
-      antworten.forEach(function(antwort) {
-        antwort.classList.remove('falsch');
-      });
-
       button.classList.add('richtig');
 
-      feedbackRichtig.classList.add('sichtbar');
+      richtigBox.classList.add('sichtbar');
 
-      fotoMission2.classList.add('sichtbar');
+      document
+        .getElementById('fotoMission2')
+        .classList
+        .remove('versteckt');
 
       localStorage.setItem(
-        'winterrallye_frage2',
+        'winterrallye_pyramide',
         'richtig'
       );
-
-      setTimeout(function() {
-
-        fotoMission2.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-
-      }, 500);
-
     }
 
     else {
 
       button.classList.add('falsch');
 
-      feedbackFalsch.classList.add('sichtbar');
-
+      falsch.classList.add('sichtbar');
     }
-
   }
 
-
-  /* MISSION 2 */
 
   function mission2Geschafft() {
 
@@ -1009,72 +1697,341 @@
       'geschafft'
     );
 
-    zeigeSeite('abschluss');
-
+    zeigeSeite('mission3');
   }
 
 
-  /* TEST ZURÜCKSETZEN */
+  /* =========================================
+     MISSION 3
+     ========================================= */
+
+  function pruefeKaiser(button, richtig) {
+
+    const falsch =
+      document.getElementById('kaiserFalsch');
+
+    const richtigBox =
+      document.getElementById('kaiserRichtig');
+
+    falsch.classList.remove('sichtbar');
+
+    if (richtig) {
+
+      button.classList.add('richtig');
+
+      richtigBox.classList.add('sichtbar');
+
+      document
+        .getElementById('domWeg')
+        .classList
+        .remove('versteckt');
+
+      document
+        .getElementById('altesEssen')
+        .classList
+        .remove('versteckt');
+
+      document
+        .getElementById('fotoMission3')
+        .classList
+        .remove('versteckt');
+
+      localStorage.setItem(
+        'winterrallye_kaiser',
+        'richtig'
+      );
+    }
+
+    else {
+
+      button.classList.add('falsch');
+
+      falsch.classList.add('sichtbar');
+    }
+  }
+
+
+  function mission3Geschafft() {
+
+    localStorage.setItem(
+      'winterrallye_mission3',
+      'geschafft'
+    );
+
+    zeigeSeite('zwischenchallenge');
+  }
+
+
+  /* =========================================
+     ZWISCHEN-CHALLENGE
+     ========================================= */
+
+  function zwischenChallengeGeschafft() {
+
+    localStorage.setItem(
+      'winterrallye_zwischenchallenge',
+      'geschafft'
+    );
+
+    zeigeSeite('mission4');
+  }
+
+
+  /* =========================================
+     MISSION 4
+     ========================================= */
+
+  function pruefeKrupp(button, richtig) {
+
+    const falsch =
+      document.getElementById('kruppFalsch');
+
+    const richtigBox =
+      document.getElementById('kruppRichtig');
+
+    falsch.classList.remove('sichtbar');
+
+    if (richtig) {
+
+      button.classList.add('richtig');
+
+      richtigBox.classList.add('sichtbar');
+
+      document
+        .getElementById('fotoKrupp')
+        .classList
+        .remove('versteckt');
+
+      localStorage.setItem(
+        'winterrallye_krupp',
+        'richtig'
+      );
+    }
+
+    else {
+
+      button.classList.add('falsch');
+
+      falsch.classList.add('sichtbar');
+    }
+  }
+
+
+  function kruppFotoGeschafft() {
+
+    localStorage.setItem(
+      'winterrallye_kruppfoto',
+      'geschafft'
+    );
+
+    document
+      .getElementById('mittelalterWeg')
+      .classList
+      .remove('versteckt');
+
+    document
+      .getElementById('mittelalterFoto')
+      .classList
+      .remove('versteckt');
+
+    document
+      .getElementById('mittelalterWeg')
+      .scrollIntoView({
+        behavior: 'smooth'
+      });
+  }
+
+
+  function mittelalterGeschafft() {
+
+    localStorage.setItem(
+      'winterrallye_mittelalter',
+      'geschafft'
+    );
+
+    document
+      .getElementById('kennedyWeg')
+      .classList
+      .remove('versteckt');
+
+    document
+      .getElementById('kennedyWeg')
+      .scrollIntoView({
+        behavior: 'smooth'
+      });
+  }
+
+
+  function mission4Geschafft() {
+
+    localStorage.setItem(
+      'winterrallye_mission4',
+      'geschafft'
+    );
+
+    zeigeSeite('abschluss');
+  }
+
+
+  /* =========================================
+     TEST ZURÜCKSETZEN
+     ========================================= */
 
   function testNeuStarten() {
 
-    localStorage.removeItem(
-      'winterrallye_mission1'
-    );
+    const schluessel = [
+      'winterrallye_mission1',
+      'winterrallye_pyramide',
+      'winterrallye_mission2',
+      'winterrallye_kaiser',
+      'winterrallye_mission3',
+      'winterrallye_zwischenchallenge',
+      'winterrallye_krupp',
+      'winterrallye_kruppfoto',
+      'winterrallye_mittelalter',
+      'winterrallye_mission4'
+    ];
 
-    localStorage.removeItem(
-      'winterrallye_frage2'
-    );
-
-    localStorage.removeItem(
-      'winterrallye_mission2'
-    );
+    schluessel.forEach(function(schluesselName) {
+      localStorage.removeItem(schluesselName);
+    });
 
     location.reload();
-
   }
 
 
-  /* GESPEICHERTEN STAND WIEDERHERSTELLEN */
+  /* =========================================
+     GESPEICHERTEN STAND WIEDERHERSTELLEN
+     ========================================= */
 
-  const mission1Status =
+  const m1 =
+    localStorage.getItem('winterrallye_mission1');
+
+  const pyramide =
+    localStorage.getItem('winterrallye_pyramide');
+
+  const m2 =
+    localStorage.getItem('winterrallye_mission2');
+
+  const kaiser =
+    localStorage.getItem('winterrallye_kaiser');
+
+  const m3 =
+    localStorage.getItem('winterrallye_mission3');
+
+  const zwischen =
     localStorage.getItem(
-      'winterrallye_mission1'
+      'winterrallye_zwischenchallenge'
     );
 
-  const frage2Status =
+  const krupp =
+    localStorage.getItem('winterrallye_krupp');
+
+  const kruppfoto =
+    localStorage.getItem('winterrallye_kruppfoto');
+
+  const mittelalter =
     localStorage.getItem(
-      'winterrallye_frage2'
+      'winterrallye_mittelalter'
     );
 
-  const mission2Status =
-    localStorage.getItem(
-      'winterrallye_mission2'
-    );
+  const m4 =
+    localStorage.getItem('winterrallye_mission4');
 
 
-  if (mission2Status === 'geschafft') {
+  if (m4 === 'geschafft') {
 
     zeigeSeite('abschluss');
 
   }
 
-  else if (mission1Status === 'geschafft') {
+  else if (zwischen === 'geschafft') {
+
+    zeigeSeite('mission4');
+
+    if (krupp === 'richtig') {
+      document
+        .getElementById('kruppRichtig')
+        .classList
+        .add('sichtbar');
+
+      document
+        .getElementById('fotoKrupp')
+        .classList
+        .remove('versteckt');
+    }
+
+    if (kruppfoto === 'geschafft') {
+      document
+        .getElementById('mittelalterWeg')
+        .classList
+        .remove('versteckt');
+
+      document
+        .getElementById('mittelalterFoto')
+        .classList
+        .remove('versteckt');
+    }
+
+    if (mittelalter === 'geschafft') {
+      document
+        .getElementById('kennedyWeg')
+        .classList
+        .remove('versteckt');
+    }
+
+  }
+
+  else if (m3 === 'geschafft') {
+
+    zeigeSeite('zwischenchallenge');
+
+  }
+
+  else if (m2 === 'geschafft') {
+
+    zeigeSeite('mission3');
+
+    if (kaiser === 'richtig') {
+
+      document
+        .getElementById('kaiserRichtig')
+        .classList
+        .add('sichtbar');
+
+      document
+        .getElementById('domWeg')
+        .classList
+        .remove('versteckt');
+
+      document
+        .getElementById('altesEssen')
+        .classList
+        .remove('versteckt');
+
+      document
+        .getElementById('fotoMission3')
+        .classList
+        .remove('versteckt');
+    }
+
+  }
+
+  else if (m1 === 'geschafft') {
 
     zeigeSeite('mission2');
 
-    if (frage2Status === 'richtig') {
+    if (pyramide === 'richtig') {
 
       document
-        .getElementById('feedbackRichtig')
+        .getElementById('pyramideRichtig')
         .classList
         .add('sichtbar');
 
       document
         .getElementById('fotoMission2')
         .classList
-        .add('sichtbar');
-
+        .remove('versteckt');
     }
 
   }
